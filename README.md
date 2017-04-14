@@ -31,6 +31,7 @@ Ok, now that we can read from a URL, get data out of the html (Just like in the 
   1. Choose a website that you frequent that has data (text) that could be scraped from it's HTML (this could be Facebook, CNN, Kitty Pictures, whatever)
   2. Write some code that collects at least 10 pieces of information from the webiste (e.g. friends from Facebook, or headlines from CNN, comments on kitty pictures, etc)
   3. Create a new web page that displays ONLY the information you collected in step 2
+
 The page you create can be very simple. You only need to display the information in a readable format.  No fancy formatting required ... we'll save that for next time :)
 To get checked off, be prepared to show:
   1. The original website you got your data from
