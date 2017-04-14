@@ -37,3 +37,36 @@ To get checked off, be prepared to show:
   1. The original website you got your data from
   2. Your code in lab16_LastName.py format (Please add your name and your partner's name as a comment in the beginning of your program. )
   3. Your resulting html page that you created
+  
+## Mini Lab
+Background:
+So far, the html pages that we've been creating are pretty boring: black text on a white background.  We can make things a little more exciting by changing up the color and size of the font that we use.  First we need to introduce the <p> tag.  In html <p> defines a paragraph.  No big deal.  However, we can combine the <p> tag with a little css (cascading style sheet) code to start to format our output a little more. Let's look at an example:
+
+<p style="color:#339900; font-size:50px; font-weight:bold">GREEN EGGS!</p>
+
+Here I have the <p> tag with some extra stuff inside the opening tag:
+
+style="    this part alerts us that there is some style information coming up.  All the style information will be inside the double quotes
+
+color=#339900   this sets the color of the text for the paragraph tag that we are currently using. Notice that the color is specified as a wierd number.  This number is actually a set of RGB values specified in hexadecimal (base 16).  Don't worry, you don' t need to know hexadecimal color codes, you can just look them up on line.  Here are a couple of resources:
+
+http://html-color-codes.com/
+http://www.colorpicker.com/
+font-size:50px     this sets the size of the text
+
+font-weight:bold     this part says to make the text in this paragraph bold.
+
+Notice that all the style components are insdie the same set of double quotes and each part is separated from the next by a semi-colon.  The text between the <p> and </p> tags will be affected by the formatting and will be the text that shows up on your webpage.
+
+There are actually a ton of different ways that you can use CSS to modify the look of text on your page, but these three options should be more than enough for today's lab.  To learn more about CSS and font you can check out this page from W3 Schools (make sure you click some of the additional links to learn more)
+
+Lab Problem for Today:
+Start with the Green Eggs and Ham word count lab.  In this lab, you printed to the screen a list of every word in Green Eggs and Ham and how often it appeared. For today's lab, 
+
+  1. First, modify your Green Eggs and Ham lab so that instead of printing the words and counts to the screen, it writes them out to an .html file.  You should be able to open your html file in a browser to see the results of your word count
+
+  2.  Now, instead of printing the counts for each word, modify the color/size/weight of the word to reflect its frequency in the file.  You will probably want to break the counts into ranges for this (e.g. words with a count between 30 and 40 have one color/size, etc).  
+
+Here is a screen shot showing part of one potential outcome (be creative, this is by no means *the* answer, hopefully every group will have a different product for this lab)
+
+hams
