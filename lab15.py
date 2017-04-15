@@ -43,6 +43,8 @@ class Craps:
     roll = self.__rollPair()
     if roll == 7 or roll == 11:
       self.__success = true
+    elif roll == 2 or roll == 3 or roll == 12:
+      self.__success = false
     else:
       showInformation("During the point phase the shooter will re-roll until they roll a 7 or their original number " + str(int(roll)))
       self.__success = self.__pointPhase(roll)
