@@ -1,5 +1,5 @@
 """
-Trammel May, Trent Duhart, Gene Evans
+Trammel May, Trent Dehart, Gene Evans
 """ 
 
 """ Problem 1 """ 
@@ -16,7 +16,6 @@ class Craps:
         self.__update()
         self.__render()
     showInformation("You cashed out with " + str(int(self.__credits)) + " credits!")
-    return 
  
   def __render(self):
     if self.__success:
@@ -26,12 +25,16 @@ class Craps:
     self.__keepPlaying()
     
   def __keepPlaying(self):
-    userInput = requestString("Would you like to keep playing? (y/n)")
-    if userInput == "n":
+    if self.__credits != 0:
+      userInput = requestString("Would you like to keep playing? (y/n)")
+      if userInput == "n":
+        self.__isPlaying = false
+        showInformation("See you again soon!")
+      elif userInput != "y":
+        self.__keepPlaying()
+    else:
+      showInformation("Sorry, you are currently out of credits to bet.")
       self.__isPlaying = false
-      showInformation("See you again soon!")
-    elif userInput != "y":
-      self.__keepPlaying()
     
   def __handleInput(self):
     showInformation("You are the shooter with " + str(int(self.__credits)) + " credits.")
@@ -39,21 +42,18 @@ class Craps:
     showInformation("You bet " + str(int(self.__bet)) + " credits! Time to Come Out!")
     
   def __update(self):
-    self.__success = false
     roll = self.__rollPair()
     if roll == 7 or roll == 11:
       self.__success = true
     elif roll == 2 or roll == 3 or roll == 12:
       self.__success = false
     else:
-      showInformation("During the point phase the shooter will re-roll until they roll a 7 or their original number " + str(int(roll)))
+      showInformation("During the point phase the shooter will re-roll until they roll a 7, or their original number: " + str(int(roll)))
       self.__success = self.__pointPhase(roll)
     if self.__success:
       self.__credits = self.__credits + int(self.__bet)
     else:
       self.__credits = self.__credits - int(self.__bet)
-    if self.__credits <= 0:
-      self.__isPlaying = false
     
   def __pointPhase(self, roll):
     newRoll = self.__rollPair()
@@ -70,20 +70,19 @@ class Craps:
       showInformation("You must bet between the table minimum and maximum (2-100)")
       return self.__getBet()
     elif bet > self.__credits:
-      showInformation("Sorry, you only have " + str(int(self.credits)) + " credits")
+      showInformation("Sorry, you only have " + str(int(self.__credits)) + " credits")
       return self.__getBet()
     return bet
     
   def __wannaPlay(self):
-    userInput = requestString("Welcome to the Crazy Craps Casino! Would you like to play? (y/n)")
+    userInput = requestString("Welcome to the Crazy Craps Casino! Looks like you have 100 credits. Would you like to play? (y/n)")
+    while userInput != "y" and userInput != "n":
+      userInput = requestString("I am sorry, I did not understand. (y/n)")
     if userInput == "y":
       return true
-    elif userInput == "n":
+    else:
       showInformation("Ok, we will keep a seat warm for you!")
       return false 
-    else:
-      showInformation("I am sorry, I did not understand")
-      self.play()
    
   def __rollPair(self):
     roll = self.__rollDie() + self.__rollDie()
